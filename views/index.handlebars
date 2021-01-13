@@ -1,8 +1,19 @@
-<h2>Inventory Manager</h2>
+<header>
+    <div class="main_content">
+    <h2>Inventory Manager</h2>
+</header>
 
+<div class="item-content">
+    {{#each all_inventory}}
+        <div class="item-content__list">
+            <p>{{item_name}}</p>
+            <button class="btn btn-default is_withdrawn" data-id="{{id}}" data-state="{{is_withdrawn}}">
+                {{#if is_withdrawn}} Returned {{else}} Add to Withdrawn {{/if}} 
+            </button>
+        </div>
+    {{/each}}
+    </div>
 
-{{#each all_inventory}}
-    <p>{{item_name}}</p>
-{{/each}}
+    <a href="about">about</a>
 
-<a href="about">about</a>
+</div>

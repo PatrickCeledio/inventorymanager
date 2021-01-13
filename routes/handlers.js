@@ -10,7 +10,8 @@ router.get("/", function(req, res) {
             });
         }
         console.log('Database: ', all_inventory)
-        res.render("index");
+        // Send and render all_inventory data to index
+        res.render("index", { all_inventory });
     });
 });
 
