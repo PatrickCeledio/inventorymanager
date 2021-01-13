@@ -9,6 +9,7 @@ router.get("/", function(req, res) {
                 message: 'Unable to query the database'
             });
         }
+        console.log('Database: ', all_inventory)
         res.render("index");
     });
 });
