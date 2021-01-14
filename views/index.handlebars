@@ -1,21 +1,24 @@
 <header>
-    <div class="main_content">
-    <h2>Inventory Manager</h2>
+    <div>
+    <h1 class="header-title">Inventory Manager</h1>
     </div>
 </header>
 
 <div class="item-content">
     {{#each all_inventory}}
         <div class="item-content__list">
-            <p>{{item_name}}</p>
-            <button class="btn btn-default is_withdrawn" data-id="{{id}}" data-state="{{is_withdrawn}}">
-                {{#if is_withdrawn}} Returned {{else}} Add to Withdrawn {{/if}} 
+            <p class="item-conent__name">{{item_name}}</p>
+            <button class="btn" data-id="{{id}}" data-state="{{is_withdrawn}}">
+                {{#if is_withdrawn}} Return {{else}} Add to Withdrawn {{/if}} 
             </button>
         </div>
     {{/each}}
-    </div>
+</div>
 
+
+<div class="footer-nav">
     <a href="about">about</a>
     <a href="table">table</a>
-
 </div>
+
+
