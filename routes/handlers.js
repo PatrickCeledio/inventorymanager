@@ -11,8 +11,12 @@ router.get("/", function(req, res) {
         }
         console.log('Database: ', all_inventory)
         // Send and render all_inventory data to index
-        res.render("index", { all_inventory });
+        res.render("index", { all_inventory, style: 'index' });
     });
 });
+
+router.get("table", function(req, res) {
+    res.render("table", { all_inventory, style: 'table'});
+})
 
 module.exports = router;
