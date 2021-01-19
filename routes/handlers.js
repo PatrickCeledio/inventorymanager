@@ -15,6 +15,25 @@ router.get("/", function(req, res) {
     });
 });
 
+// Route called add which will insert items into inventory_db 
+router.post('/add', (req, res) => { 
+    const itemName = req.body.item_name;
+    const itemDesc = req.body.description;
+    orm.insertItem(itemName, itemDesc, function(error, item_name) {
+        if(error) {
+            return res.status(401).json({
+                message: "Not able to add item"
+            });
+        }
+
+        return res.json({
+            item_name: itemName,
+            description: itemDesc,
+            is_withdrawn: 0
+        });
+    });
+})
+
 router.get("table", function(req, res) {
     res.render("table", { all_inventory, style: 'table'});
 })

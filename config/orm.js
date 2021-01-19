@@ -1,10 +1,20 @@
-// All database behavior
+/* Database behavior */
+// Establish connection
 const connection = require('./connection')
 
-// In case there is an error, make the error the first print
 const orm = {
-    selectAll: function(cb) {
+    // Selects everything from inventory_db and returns them via callback
+    selectAll: function (cb) {
         connection.query("SELECT * FROM all_inventory", function (err, data) {
+            if (err) cb(err, null);
+            cb(null, data);
+        });
+    },
+
+    // Insert item into inventory_db.all_inventory table
+    insertItem: function (item_name, description, cb) {
+        const sqlQuery = `INSERT INTO inventory_db.all_inventory (item_name, description, is_withdrawn) VALUES ('${item_name}', '${description}', 0)`;
+        connection.query(sqlQuery, function (err, data) {
             if (err) cb(err, null);
             cb(null, data);
         });
