@@ -8,7 +8,7 @@
     <div class="add-item_button">
         <input type="text" required placeholder="Add item here" class="form-input_itemname" name="item_name">
         <input type="text" placeholder="Add any description here" class="form-input_itemdesc" name="description"><br>
-        <button type="submit" class=".btn"> Add Item </button>
+        <button type="submit" class=".btn-additem"> Add Item </button>
     </div>
 </form>
 
@@ -28,13 +28,14 @@
                     <td class="item-content__picture">
                         {{#if is_withdrawn}} <img src="" alt="Unvailable"> {{else}} <img src="" alt="Available"> {{/if}} 
                     </td>
-                    <td class="item-content__entry">{{id}}</td>
+                    <td class="item-content__id">{{id}}</td>
                     <td class="item-content__entry">{{item_name}}</td>
                     <td class="item-content__entry">{{description}}</td>
                     <td class="item-content__entry">
-                        <button type="button "btn" data-id="{{id}}" data-state="{{is_withdrawn}}">
+                        <button type="button" class= "btn" data-id="{{id}}" data-state="{{is_withdrawn}}">
                         {{#if is_withdrawn}} Return {{else}} Withdraw {{/if}} 
                         </button>
+                        <button type="button" class=".btn-deleteitem"> Delete </button>
                     </td>
                     <td class="item-content__entry">{{created}}</td>
                 </tr>

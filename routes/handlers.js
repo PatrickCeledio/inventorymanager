@@ -34,6 +34,22 @@ router.post('/add', (req, res) => {
     });
 })
 
+// Delete items 
+router.post('/delete', (req, res) => {
+    const itemId = req.body.id;
+    orm.deleteItem(itemId, function(error, id){
+        if(error) {
+            return res.status(401).json({
+                message: "Not able to delete item"
+            });
+        }
+
+        return res.json({
+            id: itemId
+        });
+    });
+})
+
 router.get("table", function(req, res) {
     res.render("table", { all_inventory, style: 'table'});
 })

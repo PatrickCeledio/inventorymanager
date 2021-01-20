@@ -18,7 +18,16 @@ const orm = {
             if (err) cb(err, null);
             cb(null, data);
         });
-    }
+    },
+
+    deleteItem: function(id, cb){
+        // This might be throwing SQL error
+        const sqlQuery = `DELETE FROM inventory_db.all_inventory WHERE id = '${id}'`; 
+        connection.query(sqlQuery, function(err, data) {
+            if (err) cb(err, null);
+            cb(null, data);
+        });
+    },
 };
 
 module.exports = orm;

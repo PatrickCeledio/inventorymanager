@@ -118,6 +118,14 @@ section {
     text-align: center;
 }
 
+.item-content__id {
+    letter-spacing: 1px;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h2);
+    text-align: center;
+}
+
+
 .item-content__heading {
     font-family: var(--ff-primary);
     font-size: var(--fs-h1);
