@@ -1,49 +1,62 @@
 <header>
     <div>
-    <h1 class="header-title"><strong>Inventory Manager<strong></h1>
+        <h1 class="header-title"><strong>Inventory Manager<strong></h1>
     </div>
 </header>
 
+
+<!-- Add item form-->
 <form>
-    <div class="add-item_button">
+    <div class="add-item">
         <input type="text" required placeholder="Add item here" class="form-input_itemname" name="item_name">
         <input type="text" placeholder="Add any description here" class="form-input_itemdesc" name="description"><br>
-        <button type="submit" class=".btn-additem"> Add Item </button>
+        <button type="submit" class="add-item_button"> Add Item </button>
     </div>
 </form>
 
-<div class="item-content">
-    <table class="item-content__table">
-        <tr>
-            <th class="item-content__heading">Picture</th>
-            <th class="item-content__heading">Id #</th>
-            <th class="item-content__heading">Item Name</th>
-            <th class="item-content__heading">Description</th>
-            <th class="item-content__heading">Status</th>
-            <th class="item-content__heading">Created</th>
-        </tr>
+<table id="item-content__table">
+    <div class="item-content__table">
+        <thread>
+            <tr>
+                <th class="item-content__heading">Picture</th>
+                <th class="item-content__heading">Id #</th>
+                <th class="item-content__heading">Item Name</th>
+                <th class="item-content__heading">Description</th>
+                <th class="item-content__heading">Status</th>
+                <th class="item-content__heading">Created</th>
+            </tr>
+        </thread>
+        <tbody>
         {{#each all_inventory}}
-            <div class="item-content__list">
-                <tr>
-                    <td class="item-content__picture">
-                        {{#if is_withdrawn}} <img src="" alt="Unvailable"> {{else}} <img src="" alt="Available"> {{/if}} 
-                    </td>
-                    <td class="item-content__id">{{id}}</td>
-                    <td class="item-content__entry">{{item_name}}</td>
-                    <td class="item-content__entry">{{description}}</td>
-                    <td class="item-content__entry">
-                        <button type="button" class= "btn" data-id="{{id}}" data-state="{{is_withdrawn}}">
-                        {{#if is_withdrawn}} Return {{else}} Withdraw {{/if}} 
-                        </button>
-                        <button type="button" class=".btn-deleteitem"> Delete </button>
-                    </td>
-                    <td class="item-content__entry">{{created}}</td>
-                </tr>
-            </div>
-         {{/each}}
-    </table>
-</div>
-
+        <div class="item-content__list" id={{id}}>
+            <tr>
+                <td>
+                    {{#if is_withdrawn}} <img src="" alt="Unvailable"> {{else}} <img src="" alt="Available"> {{/if}}
+                </td>
+                <td>
+                    <p>{{id}}</p>
+                </td>
+                <td>
+                    <p>{{item_name}}</p>
+                </td>
+                <td>
+                    <p>{{description}}</p>
+                </td>
+                <td>
+                    <button type="button" class=".btn__status" data-id="{{id}}" data-state="{{is_withdrawn}}">
+                        {{#if is_withdrawn}} Return {{else}} Withdraw {{/if}}
+                    </button>
+                    <button type="button" class=".btn__deleteitem"> Delete </button>
+                </td>
+                <td>
+                    <p>{{created}}</p>
+                </td>
+            </tr>
+        </div>
+        </tbody>
+        {{/each}}
+    </div>
+</table>
 
 <div class="footer-nav">
     <a href="about">about</a>
@@ -51,7 +64,7 @@
 </div>
 
 <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
+    document.addEventListener('DOMContentLoaded', (event) => {
         // Get the date string 
         document.querySelectorAll('span[class=item-content__entry]').forEach((postedDate) => {
             // Change date string to UTC

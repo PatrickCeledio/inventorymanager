@@ -87,10 +87,27 @@ section {
     transform: scale(1.2);
 }
 
+.add-item {
+    text-align: center;
+    font-size: 36px;
+}
+
 .add-item_button {
     text-align: center;
     font-size: 36px;
 }
+
+.btn__status {
+    text-align: center;
+    font-size: 50px;
+}
+
+.btn__deleteitem {
+    text-align: center;
+    font-size: 50px;
+}
+
+
 
 /* Content */
 
@@ -105,7 +122,10 @@ section {
     padding: 0;
 }
 
-.item-content__list {    
+.item-content__list {
+    letter-spacing: 1px;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h2);
     text-align: center;
     margin-top: 4em;
     overflow: visible;
@@ -119,6 +139,20 @@ section {
 }
 
 .item-content__id {
+    letter-spacing: 1px;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h2);
+    text-align: center;
+}
+
+.item-content__name {
+    letter-spacing: 1px;
+    font-family: var(--ff-secondary);
+    font-size: var(--fs-h2);
+    text-align: center;
+}
+
+.item-content__desc {
     letter-spacing: 1px;
     font-family: var(--ff-secondary);
     font-size: var(--fs-h2);

@@ -1,4 +1,5 @@
-/* Database behavior */
+/* Database mgmt */
+
 // Establish connection
 const connection = require('./connection')
 
@@ -22,8 +23,8 @@ const orm = {
 
     deleteItem: function(id, cb){
         // This might be throwing SQL error
-        const sqlQuery = `DELETE FROM inventory_db.all_inventory WHERE id = '${id}'`; 
-        connection.query(sqlQuery, function(err, data) {
+        const sqlDelete = `DELETE FROM inventory_db.all_inventory WHERE (id = '${id}')`; 
+        connection.query(sqlDelete, function(err, data) {
             if (err) cb(err, null);
             cb(null, data);
         });
